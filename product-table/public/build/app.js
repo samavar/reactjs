@@ -8,7 +8,12 @@ var FilterableProductTable = React.createClass({
 		return { products: products };
 	},
 	handleSearch: function handleSearch(searchText) {
-		var p = products.filter(function (pr) {});
+		var p = products.filter(function (product) {
+			if (product.name.indexOf(searchText) > -1) {
+				return true;
+			}
+			return false;
+		});
 		this.setState({ products: p });
 	},
 	render: function render() {
